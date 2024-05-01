@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class formPage extends base {
     public formPage(WebDriver driver) {
-        super(driver);
+        super();
     }
 
     public void fillForm(String name, String email, String message) {

@@ -16,35 +16,12 @@ public class base {
     public static WebDriver driver;
     public static String browser = "chrome";
 
-    public base(WebDriver driver) {
+    public base() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
     }
 
-    @BeforeMethod
-    public void setup() {
-        switch (browser) {
-            case "chrome" -> {
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--disable-notifications");
-                options.addArguments("--remote-allow-origins=*");
-                driver = new ChromeDriver(options);
-            }
-            case "edge" -> {
-                EdgeOptions options1 = new EdgeOptions();
-                options1.addArguments("--disable-notifications");
-                driver = new EdgeDriver(options1);
-            }
-            case "firefox" -> {
-                FirefoxOptions options2 = new FirefoxOptions();
-                options2.addArguments("--disable-notifications");
-                driver = new FirefoxDriver(options2);
-            }
-        }
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-    }
-    @AfterMethod
-    public void teardown() {
-        driver.close();
-    }
+
 }

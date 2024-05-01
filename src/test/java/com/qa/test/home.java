@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 public class home extends base {
 
         public home() {
-            super(driver);
+            super();
         }
 
         public void open() {
@@ -12,7 +12,7 @@ public class home extends base {
         }
 
         public formPage navigateToFormPage() {
-            driver.findElement(By.linkText("Form")).click(); // Example navigation link
+            driver.findElement(By.xpath("//*[@id=\"main\"]/content/apd-showcase/main/section[3]/div/apd-button-default/button/span[1]")).click(); // Example navigation link
             return new formPage(driver);
         }
     }
