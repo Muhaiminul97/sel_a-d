@@ -42,14 +42,14 @@ public class home extends base {
 
     public void createRandomContact() {
         Random random = new Random();
-        String randomDigit = "4";
+        String randomMob = "4";
         for (int i = 1; i <= 8; i++) {
-            randomDigit += random.nextInt(10);
+            randomMob += random.nextInt(10);
         }
 
         WebElement mob = driver.findElement(By.id("phone"));
         mob.click();
-        mob.sendKeys(randomDigit);
+        mob.sendKeys(randomMob);
 
     }
 
