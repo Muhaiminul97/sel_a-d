@@ -42,9 +42,9 @@ public class home extends base {
 
     public void createRandomContactNumber() {
         Random random = new Random();
-        String randomDigit = "4"; // Start with the country code "4"
+        String randomDigit = "4";
         for (int i = 1; i <= 8; i++) {
-            randomDigit += random.nextInt(10); // Append random digits to make the total length 9
+            randomDigit += random.nextInt(10);
         }
 
         WebElement mob = driver.findElement(By.id("phone"));
