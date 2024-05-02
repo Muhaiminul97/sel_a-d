@@ -15,7 +15,7 @@ public class formSubmission {
             String name = "Shakib" + i;
             String email = "Shakib" + i + "@example.com";
             homeFormPage.fillForm(name, email);
-            homeFormPage.processFormSubmission();
+            homeFormPage.formSubmission();
 
             try {
                 Thread.sleep(2000);

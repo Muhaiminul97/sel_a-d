@@ -73,7 +73,7 @@ public class home extends base {
         //driver.findElement(By.className("enquiry-submit")).click();
     }
 
-    public void processFormSubmission() {
+    public void formSubmission() {
         createRandomContact();
 postCode();
         String[] dropdownIds = {"mat-input-12", "mat-input-15", "mat-input-13", "mat-input-10", "mat-input-14"};
