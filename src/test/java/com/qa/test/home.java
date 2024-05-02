@@ -40,7 +40,7 @@ public class home extends base {
 
     }
 
-    public void createRandomContactNumber() {
+    public void createRandomContact() {
         Random random = new Random();
         String randomDigit = "4";
         for (int i = 1; i <= 8; i++) {
@@ -53,7 +53,7 @@ public class home extends base {
 
     }
 
-    public void checkCheckboxesRandomly() {
+    public void checkCheckboxes() {
         List<WebElement> checkboxes = driver.findElements(By.cssSelector("input[type='checkbox']"));
         Random random = new Random();
         for (WebElement checkbox : checkboxes) {
@@ -67,14 +67,14 @@ public class home extends base {
         post_code.sendKeys("3000");
     }
 
-    public void submitForm() {
+    public void submitDataForm() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120)); // Wait up to 10 seconds
         wait.until(ExpectedConditions.elementToBeClickable(By.className("enquiry-submit"))).click();
         //driver.findElement(By.className("enquiry-submit")).click();
     }
 
     public void processFormSubmission() {
-        createRandomContactNumber();
+        createRandomContact();
 postCode();
         String[] dropdownIds = {"mat-input-12", "mat-input-15", "mat-input-13", "mat-input-10", "mat-input-14"};
         Random random = new Random();
@@ -86,10 +86,9 @@ postCode();
             select.selectByIndex(randomIndex);
         }
 
-        checkCheckboxesRandomly();
+        checkCheckboxes();
 
-        // Submit the form
-        submitForm();
+        submitDataForm();
     }
 }
 

@@ -17,10 +17,14 @@ public class base {
     public static String browser = "chrome";
 
     public base() {
+        if(driver==null){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);}
+        else
+        {
+            System.out.println("error");
+        }
     }
 
 

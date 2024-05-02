@@ -4,18 +4,18 @@ import com.qa.test.home;
 
 public class formSubmission {
     public static void main(String[] args) {
-        home homePage = new home();
+        home homeFormPage = new home();
 
 
-        homePage.open();
-        homePage.openFormModal();
+        homeFormPage.open();
+        homeFormPage.openFormModal();
 
         for (int i = 1; i <= 20; i++) {
 
-            String name = "User" + i;
-            String email = "user" + i + "@example.com";
-            homePage.fillForm(name, email);
-            homePage.processFormSubmission();
+            String name = "Shakib" + i;
+            String email = "Shakib" + i + "@example.com";
+            homeFormPage.fillForm(name, email);
+            homeFormPage.processFormSubmission();
 
             try {
                 Thread.sleep(2000);
