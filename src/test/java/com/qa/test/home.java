@@ -29,20 +29,28 @@ public class home extends base {
     }
 
     public void fillForm(String name, String email) {
-        driver.findElement(By.id("mat-input-7")).sendKeys(name);
-        driver.findElement(By.id("mat-input-8")).sendKeys(email);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
+        WebElement name_in = driver.findElement(By.id("mat-input-7"));
+        name_in.click();
+        name_in.sendKeys(name);
+        WebElement mail_in = driver.findElement(By.id("mat-input-8"));
+        mail_in.click();
+        mail_in.sendKeys(email);
 
 
     }
 
     public void createRandomContactNumber() {
-        String[] dialingCodes = {"02", "03", "07", "08"};
         Random random = new Random();
-        String randomDialingCode = dialingCodes[random.nextInt(dialingCodes.length)];
-        String randomDigit = "61" + randomDialingCode + (10000000 + random.nextInt(90000000));
+        String randomDigit = "4"; // Start with the country code "4"
+        for (int i = 1; i <= 8; i++) {
+            randomDigit += random.nextInt(10); // Append random digits to make the total length 9
+        }
+
         WebElement mob = driver.findElement(By.id("phone"));
         mob.click();
         mob.sendKeys(randomDigit);
+
     }
 
     public void checkCheckboxesRandomly() {
@@ -53,6 +61,12 @@ public class home extends base {
         }
     }
 
+    public void postCode() {
+        WebElement post_code = driver.findElement(By.id("mat-input-9"));
+        post_code.click();
+        post_code.sendKeys("3000");
+    }
+
     public void submitForm() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120)); // Wait up to 10 seconds
         wait.until(ExpectedConditions.elementToBeClickable(By.className("enquiry-submit"))).click();
@@ -61,7 +75,7 @@ public class home extends base {
 
     public void processFormSubmission() {
         createRandomContactNumber();
-
+postCode();
         String[] dropdownIds = {"mat-input-12", "mat-input-15", "mat-input-13", "mat-input-10", "mat-input-14"};
         Random random = new Random();
         for (String dropdownId : dropdownIds) {

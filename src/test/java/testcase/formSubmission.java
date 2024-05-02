@@ -14,11 +14,9 @@ public class formSubmission {
 
             String name = "User" + i;
             String email = "user" + i + "@example.com";
-
+            homePage.fillForm(name, email);
             homePage.processFormSubmission();
 
-
-            // Wait for a brief moment before reopening the form
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
