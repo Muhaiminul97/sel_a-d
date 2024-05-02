@@ -1,32 +1,29 @@
 package testcase;
 
-import com.qa.test.formPage;
 import com.qa.test.home;
 
 public class formSubmission {
     public static void main(String[] args) {
         home homePage = new home();
-        formPage formPage;
+
 
         homePage.open();
+        homePage.openFormModal();
 
         for (int i = 1; i <= 20; i++) {
+
             String name = "User" + i;
             String email = "user" + i + "@example.com";
 
-            formPage = homePage.navigateToFormPage();
+            homePage.processFormSubmission();
 
-            formPage.fillForm(name, email, "Your Name automation " + i);
 
-            formPage.submitForm();
-
+            // Wait for a brief moment before reopening the form
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-
-
     }
 }
