@@ -76,10 +76,10 @@ public class home extends base {
     public void formSubmission() {
         createRandomContact();
 postCode();
-        String[] dropdownIds = {"mat-input-12", "mat-input-15", "mat-input-13", "mat-input-10", "mat-input-14"};
+        String[] dropdownLists = {"mat-input-12", "mat-input-15", "mat-input-13", "mat-input-10", "mat-input-14"};
         Random random = new Random();
-        for (String dropdownId : dropdownIds) {
-            WebElement dropdown = driver.findElement(By.id(dropdownId));
+        for (String dropdownList : dropdownLists) {
+            WebElement dropdown = driver.findElement(By.id(dropdownList));
             Select select = new Select(dropdown);
             List<WebElement> options = select.getOptions();
             int randomIndex = random.nextInt(options.size());
