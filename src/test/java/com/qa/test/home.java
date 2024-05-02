@@ -57,7 +57,7 @@ public class home extends base {
         List<WebElement> checkboxes = driver.findElements(By.cssSelector("input[type='checkbox']"));
         Random random = new Random();
         for (WebElement checkbox : checkboxes) {
-            checkbox.click(); // Select/deselect randomly
+            checkbox.click();
         }
     }
 
